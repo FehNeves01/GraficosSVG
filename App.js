@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, ScrollView, Text } from 'react-native';
-
+import { View, ScrollView, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
+import * as Linking from 'expo-linking';
 
 import GroupedBarChartExample from './src/GroupedBarChartExample';
 import BarChartExample from './src/BarChartExample';
@@ -76,12 +77,31 @@ export default function App() {
         <Text style={{ color: 'white', marginLeft: 25, fontWeight: '900', marginBottom: 25 }}>PieChartWithDynamicSlices</Text>
         <PieChartWithDynamicSlices />
 
+        {/*  */}
 
-        <View style={{marginLeft:10, marginRight:10 }}>
+        <View style={{ marginLeft: 10, marginRight: 10 }}>
 
-          <Text style={{ color: 'white', fontWeight: '900' }}>Para Ver Todos os Graficos Acessar o Link:</Text>
-          <Text style={{ color: 'white', fontWeight: '900' }}>https://github.com/JesperLekland/react-native-svg-charts-examples</Text>
-        
+          <TouchableWithoutFeedback onPress={() => { WebBrowser.openBrowserAsync('https://github.com/JesperLekland/react-native-svg-charts-examples') }}>
+            <View style={{ flex: 1, flexDirection: 'row', marginBottom: 15 }}>
+              <View style={{ flex: 0.4 }}>
+                <Image source={require("./assets/img/GitHubColorido.png")} style={{ width: 50, height: 50 }} />
+              </View>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: 'white', fontWeight: '900' }}>Git Example</Text>
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback onPress={() => { WebBrowser.openBrowserAsync('https://github.com/FehNeves01/GraficosSVG') }}>
+            <View style={{ flex: 1, flexDirection: 'row', marginBottom: 15 }}>
+              <View style={{ flex: 0.4 }}>
+                <Image source={require("./assets/img/GitHubColorido.png")} style={{ width: 50, height: 50 }} />
+              </View>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: 'white', fontWeight: '900' }}>Meu Código Fonte</Text>
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
 
       </ScrollView>
